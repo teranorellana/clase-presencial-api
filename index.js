@@ -16,12 +16,19 @@ app.use(
 
 app.use(express.json());
 
+// Ruta principal (Raíz) - Mensaje de bienvenida
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Bienvenido a la API del Colegio San Marcos. El servidor está funcionando correctamente.'
+  });
+});
+
 // Endpoint de monitoreo (Health Check)
 // Permite verificar que la API se encuentra operativa
 app.get('/health', (req, res) => {
-  res.status(200).json({
-    status: 'OK',
-    message: 'La API se encuentra operativa'
+  res.status(200).json({ 
+    status: 'OK', 
+    message: 'La API se encuentra operativa' 
   });
 });
 

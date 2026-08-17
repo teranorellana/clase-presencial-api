@@ -16,6 +16,15 @@ app.use(
 
 app.use(express.json());
 
+// Endpoint de monitoreo (Health Check)
+// Permite verificar que la API se encuentra operativa
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'La API se encuentra operativa'
+  });
+});
+
 // Rutas para alumnos
 app.use('/api/alumnos', alumnosRoutes);
 
